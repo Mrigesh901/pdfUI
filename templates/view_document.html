@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Reset default margin and padding for all elements */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Include padding and border in total width/height */
+        }
+
+        /* Set full-height for body and html to cover entire viewport */
+        body, html {
+            height: 100%;
+            overflow: hidden; /* Hide horizontal overflow */
+        }
+
+        /* Container for the entire page */
+        .container {
+            display: flex;
+            height: 100%;
+            width: 100%;
+        }
+
+        /* Styling for the PDF viewer section */
+        .pdf-viewer {
+            flex: 0 0 60%; /* Take up 60% of available space */
+            height: 100%;
+            overflow: auto; /* Allow scrolling if content exceeds height */
+            background-color: #f0f0f0; /* Light background color */
+        }
+
+        /* Styling for the chat container */
+        .chat-container {
+            flex: 0 0 40%; /* Take up 40% of available space */
+            height: 100%;
+            padding: 20px; /* Add padding for content */
+            box-sizing: border-box; /* Include padding in total height */
+            background-color: #ffffff; /* White background color */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Space out elements vertically */
+        }
+
+        /* Styling for the chat messages area */
+        .chat-messages {
+            overflow-y: auto; /* Allow scrolling if messages exceed height */
+            flex: 1; /* Take up remaining space */
+            padding-bottom: 20px; /* Add padding at bottom */
+        }
+
+        /* Styling for the chat input form */
+        #chat-form {
+            display: flex;
+            margin-top: 20px; /* Add spacing above the form */
+        }
+
+        /* Styling for the chat input field */
+        #user-question {
+            flex: 1; /* Take up remaining space */
+            padding: 10px; /* Add padding */
+            margin-right: 10px; /* Add spacing between input and button */
+            border: 1px solid #ccc; /* Add border */
+            border-radius: 5px; /* Add border radius */
+        }
+
+        /* Styling for the chat send button */
+        .btn {
+            padding: 10px 20px; /* Add padding */
+            background-color: #007bff; /* Blue button color */
+            color: #ffffff; /* White text color */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Add border radius */
+            cursor: pointer; /* Change cursor on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="pdf-viewer">
+            <!-- PDF viewer embed tag -->
+            <embed src="{{ url_for('download_file', filename=filename) }}" type="application/pdf" width="100%" height="100%">
+        </div>
+        <div class="chat-container">
+            <div class="chat-messages">
+                <!-- Chat messages will be displayed here -->
+            </div>
+            <form id="chat-form">
+                <input type="text" id="user-question" placeholder="Ask a question...">
+                <button type="button" onclick="askQuestion()" class="btn">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript functions for chat functionality -->
+    <script>
+        function askQuestion() {
+            const userQuestionInput = document.getElementById('user-question');
+            const userQuestion = userQuestionInput.value.trim();
+            if (userQuestion !== '') {
+                displayMessage('You', userQuestion);
+                // Dummy API call (replace with actual AI integration)
+                const response = 'Dummy answer for: ' + userQuestion;
+                displayMessage('AI', response);
+                userQuestionInput.value = '';
+            }
+        }
+
+        function displayMessage(sender, message) {
+            const chatMessages = document.querySelector('.chat-messages');
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message');
+            messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    </script>
+</body>
+</html>
