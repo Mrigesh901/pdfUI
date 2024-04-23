@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Follow-up Prompts</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- <header>
+        <div class="header-container">
+            <h1>Legal ChatAI</h1>
+        </div>
+    </header> -->
+
+    <div class="container">
+        <form id="followUpForm" action="/submit_follow_up" method="post">
+            <div class="inputContainer">
+            <input type="text" id="userInput" name="customPrompt" placeholder="Or enter a custom prompt...">
+            <button type="submit">Submit</button>
+            </div>
+        </form>
+
+        <!-- <h1 class="title">Choose a follow-up prompt:</h1> -->
+        <ul id="followUpPrompts">
+            {% for prompt in prompts %}
+                <li>{{ prompt }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 LegalChat</p>
+        </div>
+    </footer> -->
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

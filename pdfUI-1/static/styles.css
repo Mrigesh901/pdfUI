@@ -1,0 +1,162 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+}
+
+/* Header Styles */
+header {
+    background-color: #618cb9;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.header-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Container Styles */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #f8f8f8;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+    border-radius: 8px;
+}
+
+/* Title Styles */
+.title {
+    font-size: 46px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 25px;
+    font-family: fantasy;
+}
+
+/* Input Container Styles */
+.inputContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Text Input Styles */
+.inputContainer input[type="text"] {
+    width: 100%; /* Ensure the input takes up full width of its container */
+    padding: 12px; /* Add padding inside the input for better readability */
+    font-size: 20px; /* Set the font size of the text input */
+    border: 1px solid #ccc; /* Add a border around the input */
+    border-radius: 8px; /* Apply rounded corners to the input */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+    min-height: 150px; /* Set a minimum height for the input */
+    resize: vertical; /* Allow vertical resizing of the input */
+    overflow: auto; /* Enable scrollbars if content exceeds the input size */
+    word-wrap: break-word; /* Allow words to wrap to next line if they exceed the width */
+}
+
+
+/* Submit Button Styles */
+button[type="submit"] {
+    margin-left: 20px;
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #438dd6;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Example Prompts Styles */
+.examplePrompts {
+    margin-top: 30px;
+}
+
+.examplePrompts h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+#promptList {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#promptList li {
+    width: calc(25% - 20px); /* Four cards per row (25% width with margin) */
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #ebe3eb;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    font-family: cursive;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#promptList li:hover {
+    transform: scale(1.05); /* Scale up by 5% on hover */
+    background-color: #e0e0e0; /* Change background color on hover */
+}
+
+/* Follow-up Prompts Styles */
+#followUpPrompts {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#followUpPrompts li {
+    width: calc(33.33% - 20px); /* Three cards per row with spacing */
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #e8d7eb;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-sizing: border-box; /* Include padding and border in width calculation */
+    font-family: cursive;
+    font-style: italic;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    #followUpPrompts li {
+        width: 100%; /* Display cards in one column on smaller screens */
+    }
+}
+
+#followUpPrompts li:hover {
+    transform: scale(1.05); /* Scale up by 5% on hover */
+    background-color: #e0e0e0; /* Change background color on hover */
+}
+
+footer {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
