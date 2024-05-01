@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paraphrase Text</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Paraphrase this Text</h1>
+    <form id="followUpForm" action="/submit_paraphrase" method="post">
+        <input type="text" id="userInput" name="ParaphraseText" placeholder="What do you want Paraphrased?.." required>
+        <input type="text" id="userInput" name="ParaphraseStyle" placeholder="What style would you like for Paraphrasing?" required>
+        <button type="submit" id="submitBtn">Submit</button>
+    </form>
+</div>
+</body>
+</html>

@@ -160,3 +160,19 @@ footer {
     max-width: 800px;
     margin: 0 auto;
 }
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    border-radius: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 700;
+    font-size: medium;
+}
+
+/* Make the paraphrase textbox bigger */
+#userInput {
+    height: 150px; /* Adjust the height as needed */
+}
